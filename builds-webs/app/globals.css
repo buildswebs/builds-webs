@@ -1,0 +1,657 @@
+/* ============================================================
+   BuildsWebs – Global Styles & Design Tokens
+   ============================================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --bg: #0A0808;
+  --surface: #150F0F;
+  --line: #2C2222;
+  --text: #fff;
+  --muted: #B5A5A5;
+  --accent: #E11D48;
+  --soft: #FB7185;
+  color-scheme: dark;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  font: 400 17px/1.65 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--soft);
+  outline-offset: 3px;
+}
+
+/* ---------- Layout Helpers ---------- */
+.wrap {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 56px);
+}
+
+/* ---------- Typography ---------- */
+h1 {
+  font-size: clamp(36px, 5.4vw, 66px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(26px, 3.4vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  max-width: 30ch;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+p {
+  color: var(--muted);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  background: #BE123C;
+  border-color: #BE123C;
+}
+
+.btn.alt {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.btn.alt:hover {
+  border-color: var(--muted);
+  background: transparent;
+}
+
+/* ---------- Sections ---------- */
+section {
+  padding: 72px 0;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Service item list ---------- */
+.intro {
+  color: var(--muted);
+  max-width: 64ch;
+  margin-top: 16px;
+}
+
+.list {
+  margin-top: 36px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.item h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.item h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Tags ---------- */
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.tags li {
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.tags li:hover {
+  border-color: var(--muted);
+}
+
+.tags a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ---------- Actions Row ---------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------- Audit CTA Section ---------- */
+.audit {
+  background: var(--surface);
+}
+
+.audit .actions {
+  margin-top: 28px;
+}
+
+/* ---------- Legal Pages ---------- */
+.legal {
+  padding: 64px 0 80px;
+}
+
+.legal h1 {
+  font-size: clamp(30px, 4vw, 40px);
+  margin-bottom: 8px;
+}
+
+.legal h2 {
+  font-size: 20px;
+  margin: 36px 0 8px;
+  max-width: none;
+}
+
+.legal p,
+.legal li {
+  max-width: 68ch;
+  margin-bottom: 10px;
+}
+
+.legal ul {
+  padding-left: 20px;
+}
+
+/* ---------- Service Pages ---------- */
+.sp-hero {
+  padding: 72px 0 64px;
+}
+
+.sp h1 {
+  font-size: clamp(32px, 4.6vw, 56px);
+  max-width: 24ch;
+}
+
+.lead {
+  color: var(--muted);
+  margin: 24px 0 32px;
+  max-width: 58ch;
+  font-size: 19px;
+}
+
+/* ---------- Breadcrumbs ---------- */
+.crumbs {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.crumbs a {
+  color: var(--muted);
+}
+
+/* ---------- FAQ Accordions ---------- */
+.sp details {
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+}
+
+.sp details:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.sp summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sp summary::-webkit-details-marker {
+  display: none;
+}
+
+.sp summary::after {
+  content: "+";
+  color: var(--soft);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.sp details[open] summary::after {
+  content: "\2212";
+}
+
+.sp details p {
+  margin-top: 10px;
+  max-width: 68ch;
+}
+
+/* ---------- Happy Clients / Stories ---------- */
+.stories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.story {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--surface);
+}
+
+.story blockquote p {
+  color: var(--text);
+  font-size: 18px;
+}
+
+.story .who {
+  margin-top: 16px;
+  color: var(--text);
+}
+
+.story .svc {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* ---------- Blog Card Grid ---------- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.blog-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--surface);
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.15s;
+}
+
+.blog-card:hover {
+  border-color: var(--muted);
+}
+
+.blog-card-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.blog-card h3 {
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.blog-card p {
+  font-size: 15px;
+}
+
+/* ---------- WhatsApp Float ---------- */
+.wa-float {
+  position: fixed;
+  left: max(20px, env(safe-area-inset-left));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.wa-float:hover {
+  background: #BE123C;
+  border-color: #BE123C;
+}
+
+/* ---------- Back to Top ---------- */
+.to-top {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s, background 0.2s;
+}
+
+.to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.to-top:hover {
+  background: #BE123C;
+}
+
+/* ---------- Process Steps ---------- */
+.steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.steps li {
+  position: relative;
+}
+
+.rail {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.step-num {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  color: var(--soft);
+  background: var(--surface);
+  animation: lit 3.2s ease-in-out infinite;
+}
+
+.step-line {
+  flex: 1;
+  position: relative;
+  height: 2px;
+  background: var(--line);
+  margin-right: -24px;
+}
+
+.step-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0;
+  animation: run 3.2s ease-in-out infinite;
+}
+
+.step-line::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid var(--muted);
+  border-right: 2px solid var(--muted);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.steps li:nth-child(2) .step-num,
+.steps li:nth-child(2) .step-line::before { animation-delay: 0.8s; }
+.steps li:nth-child(3) .step-num,
+.steps li:nth-child(3) .step-line::before { animation-delay: 1.6s; }
+.steps li:nth-child(4) .step-num { animation-delay: 2.4s; }
+
+.steps h3 { margin-bottom: 6px; }
+
+/* ---------- Animations ---------- */
+@keyframes run {
+  0%     { left: 0; opacity: 0; }
+  5%     { opacity: 1; }
+  25%    { left: calc(100% - 28px); opacity: 1; }
+  30%, 100% { left: calc(100% - 28px); opacity: 0; }
+}
+
+@keyframes runv {
+  0%     { top: 0; opacity: 0; }
+  5%     { opacity: 1; }
+  25%    { top: calc(100% - 28px); opacity: 1; }
+  30%, 100% { top: calc(100% - 28px); opacity: 0; }
+}
+
+@keyframes lit {
+  0%         { background: var(--surface); border-color: var(--line); color: var(--soft); }
+  6%, 16%    { background: var(--accent); border-color: var(--accent); color: #fff; }
+  32%, 100%  { background: var(--surface); border-color: var(--line); color: var(--soft); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+  section { padding: 56px 0; }
+
+  .item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .steps li {
+    padding: 0 0 36px 60px;
+  }
+
+  .steps li:last-child {
+    padding-bottom: 0;
+  }
+
+  .rail {
+    display: block;
+    margin: 0;
+  }
+
+  .step-num {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .step-line {
+    position: absolute;
+    left: 19px;
+    top: 48px;
+    bottom: 6px;
+    width: 2px;
+    height: auto;
+    margin: 0;
+  }
+
+  .step-line::before {
+    width: 2px;
+    height: 28px;
+    animation-name: runv;
+  }
+
+  .step-line::after {
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 0;
+    transform: translateX(-50%) rotate(135deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-num { animation: none; }
+  .step-line::before { display: none; }
+  .to-top { transition: none; }
+  .loader { display: none !important; }
+  .page-transition { animation: none !important; }
+}
+
+/* ---------- Smooth Page Transitions ---------- */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* ---------- Website Entrance Loader ---------- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  animation: out 0.35s ease 0.8s forwards;
+}
+
+.loader div {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+.loader .loader-logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+}
+
+.loader i {
+  display: block;
+  width: 140px;
+  height: 2px;
+  background: var(--line);
+  overflow: hidden;
+  position: relative;
+}
+
+.loader i::after {
+  content: "";
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform: translateX(-100%);
+  animation: fill 0.8s ease forwards;
+}
+
+@keyframes fill {
+  to { transform: none; }
+}
+
+@keyframes out {
+  to { opacity: 0; visibility: hidden; }
+}
+
+
