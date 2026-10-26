@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AuditCta from "@/components/AuditCta";
+import SearchMotionGraphic from "@/components/SearchMotionGraphic";
+import HowWeWorkProcess from "@/components/HowWeWorkProcess";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -42,22 +44,7 @@ export default function HomePage() {
           </div>
 
           <div className={styles.heroViz}>
-            <div
-              className={styles.serp}
-              role="img"
-              aria-label="Illustration of a local search results page where one business appears on page 3"
-            >
-              <div className={styles.serpQ}>dentist near me</div>
-              <div className={styles.serpRow}>
-                Clinic A<span>Page 1, first result</span>
-              </div>
-              <div className={styles.serpRow}>
-                Clinic B<span>Page 1, second result</span>
-              </div>
-              <div className={`${styles.serpRow} ${styles.serpYou}`}>
-                Your clinic<span>Page 3</span>
-              </div>
-            </div>
+            <SearchMotionGraphic />
             <p className={styles.serpCap}>Illustration only. Not real search data.</p>
           </div>
         </div>
@@ -148,43 +135,7 @@ export default function HomePage() {
       <section id="process">
         <div className="wrap">
           <h2>How we work</h2>
-          <ol className="steps">
-            {[
-              {
-                n: 1,
-                title: "Audit",
-                desc: "We review your Google Business Profile, website and the searches your customers use.",
-                hasLine: true,
-              },
-              {
-                n: 2,
-                title: "Plan",
-                desc: "You get a written list of fixes, ordered by what is likely to bring the most enquiries.",
-                hasLine: true,
-              },
-              {
-                n: 3,
-                title: "Build",
-                desc: "We fix listings, pages and ads, and set up WhatsApp so enquiries reach you quickly.",
-                hasLine: true,
-              },
-              {
-                n: 4,
-                title: "Review",
-                desc: "We go through the enquiries with you each month and change what is not working.",
-                hasLine: false,
-              },
-            ].map((step) => (
-              <li key={step.n}>
-                <div className="rail">
-                  <span className="step-num">{step.n}</span>
-                  {step.hasLine && <i className="step-line" aria-hidden="true" />}
-                </div>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </li>
-            ))}
-          </ol>
+          <HowWeWorkProcess />
         </div>
       </section>
 

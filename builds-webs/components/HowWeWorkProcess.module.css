@@ -1,0 +1,373 @@
+.wrap {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.step {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  color: inherit;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 42px;
+  width: 100%;
+}
+
+.badge {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #1c1516;
+  border: 1px solid var(--line);
+  color: var(--soft);
+  font-weight: 700;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+  transition: background 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    color 0.4s,
+    box-shadow 0.4s,
+    border-color 0.4s;
+}
+
+.conn {
+  position: relative;
+  flex: 1;
+  height: 1.5px;
+  background: var(--line);
+}
+
+.conn::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--muted);
+  border-right: 2px solid var(--muted);
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+
+.connFill {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  height: 3px;
+  width: 0%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  border-radius: 2px;
+}
+
+.stepLast .conn {
+  display: none;
+}
+
+/* Card Art */
+.art {
+  margin: 22px 0 18px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #181213, #110e0f);
+  border: 1px solid var(--line);
+  padding: 10px;
+  transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+}
+
+.art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.stepTitle {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.stepDesc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+  transition: color 0.4s;
+}
+
+/* Active Step Styling */
+.stepOn .badge {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 24px rgba(225, 29, 72, 0.5);
+}
+
+.stepOn .art {
+  border-color: rgba(225, 29, 72, 0.55);
+  box-shadow: 0 0 32px rgba(225, 29, 72, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.stepOn .stepDesc {
+  color: #e4dfe1;
+}
+
+.stepOn .connFill {
+  animation: fillAnim 3.4s linear forwards;
+}
+
+@keyframes fillAnim {
+  to {
+    width: 100%;
+  }
+}
+
+/* SVG Elements & Micro-animations */
+.panel {
+  fill: #1a1415;
+  stroke: #2e2426;
+}
+
+.ln {
+  fill: #34282a;
+}
+
+.hot {
+  fill: var(--accent);
+}
+
+.ac {
+  stroke: var(--soft);
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* 1. Audit Animation */
+.scan {
+  transform-box: fill-box;
+}
+
+.stepOn .scan {
+  animation: scanAnim 3.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes scanAnim {
+  from {
+    transform: translate(0, 0);
+  }
+  60% {
+    transform: translate(96px, 40px);
+  }
+  to {
+    transform: translate(96px, 40px);
+  }
+}
+
+.flag {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.stepOn .flag {
+  animation: popAnim 0.5s 1.5s both cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+@keyframes popAnim {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 2. Plan Animation */
+.row {
+  transform-box: fill-box;
+}
+
+.stepOn .row {
+  animation: rowIn 0.6s both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stepOn .row:nth-of-type(2) {
+  animation-delay: 0.35s;
+}
+
+.stepOn .row:nth-of-type(3) {
+  animation-delay: 0.7s;
+}
+
+@keyframes rowIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.tick {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 0;
+}
+
+.stepOn .tick {
+  animation: drawTick 0.5s both;
+}
+
+.stepOn .row:nth-of-type(1) .tick {
+  animation-delay: 0.8s;
+}
+
+.stepOn .row:nth-of-type(2) .tick {
+  animation-delay: 1.2s;
+}
+
+.stepOn .row:nth-of-type(3) .tick {
+  animation-delay: 1.6s;
+}
+
+@keyframes drawTick {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 3. Build Animation */
+.bub {
+  transform-box: fill-box;
+}
+
+.stepOn .b1 {
+  transform-origin: 0 100%;
+  animation: popAnim 0.6s 0.2s both cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.stepOn .b2 {
+  transform-origin: 100% 100%;
+  animation: popAnim 0.6s 1.1s both cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.tk2 {
+  stroke-dasharray: 32;
+  stroke-dashoffset: 0;
+}
+
+.stepOn .tk2 {
+  animation: drawTick 0.5s 1.8s both;
+}
+
+/* 4. Review Animation */
+.bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+
+.stepOn .bar {
+  animation: growBar 0.9s both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stepOn .bar:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+
+.stepOn .bar:nth-of-type(3) {
+  animation-delay: 0.3s;
+}
+
+.stepOn .bar:nth-of-type(4) {
+  animation-delay: 0.45s;
+}
+
+@keyframes growBar {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.trend {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 0;
+}
+
+.stepOn .trend {
+  animation: trendDraw 1.2s 0.7s both ease-out;
+}
+
+@keyframes trendDraw {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 24px;
+  }
+  .conn {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan,
+  .flag,
+  .row,
+  .tick,
+  .b1,
+  .b2,
+  .tk2,
+  .bar,
+  .trend,
+  .connFill {
+    animation: none !important;
+    transition: none !important;
+  }
+}
