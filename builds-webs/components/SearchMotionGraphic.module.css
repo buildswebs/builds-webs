@@ -3,7 +3,7 @@
   max-width: 540px;
   margin: 0 auto;
   padding: 22px;
-  border-radius: 20px;
+  border-radius: 0px;
   background: rgba(21, 15, 15, 0.75);
   border: 1px solid var(--line);
   backdrop-filter: blur(20px);
@@ -15,7 +15,7 @@
 .bar {
   position: relative;
   height: 52px;
-  border-radius: 14px;
+  border-radius: 0px;
   padding: 0 16px;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@
   left: 0;
   right: 0;
   height: 64px;
-  border-radius: 14px;
+  border-radius: 0px;
   padding: 0 18px;
   display: flex;
   align-items: center;
@@ -168,7 +168,7 @@
   position: absolute;
   left: -1px;
   width: 3px;
-  border-radius: 3px;
+  border-radius: 0px;
   top: 164px;
   height: 64px;
   opacity: 0;

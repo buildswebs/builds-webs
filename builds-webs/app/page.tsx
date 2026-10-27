@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AuditCta from "@/components/AuditCta";
-import SearchMotionGraphic from "@/components/SearchMotionGraphic";
 import HowWeWorkProcess from "@/components/HowWeWorkProcess";
+import SemrushHero from "@/components/SemrushHero";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -13,42 +13,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://buildswebs.com/" },
 };
 
-const WA_AUDIT =
-  "https://wa.me/918287593102?text=Hi%2C%20I%20would%20like%20a%20free%20digital%20audit%20for%20my%20business.";
-
 export default function HomePage() {
   return (
     <>
-      {/* ── Hero ── */}
-      <div className={styles.hero}>
-        <div className={`wrap ${styles.heroGrid}`}>
-          <div className={styles.heroText}>
-            <h1>
-              We get local businesses found on Google, then turn those searches
-              into enquiries.
-            </h1>
-            <p className="lead">
-              BuildsWebs is a digital growth agency in Greater Noida. We work
-              with businesses across India on local SEO, Google Business Profile,
-              Google Ads, websites and WhatsApp follow-up, so customers searching
-              near you find you first.
-            </p>
-            <div className="actions">
-              <a className="btn" href={WA_AUDIT} target="_blank" rel="noopener">
-                Get a free audit on WhatsApp
-              </a>
-              <Link className="btn alt" href="/services">
-                See what we do
-              </Link>
-            </div>
-          </div>
-
-          <div className={styles.heroViz}>
-            <SearchMotionGraphic />
-            <p className={styles.serpCap}>Illustration only. Not real search data.</p>
-          </div>
-        </div>
-      </div>
+      {/* ── Semrush-Style Hero ── */}
+      <SemrushHero />
 
       {/* ── Approach ── */}
       <section id="approach">
